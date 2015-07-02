@@ -79,34 +79,71 @@ def two_backed_clusters(users):
     km = KMeans(n_clusters=2, n_jobs=3)
     km.fit(two)
 
-    print('First cluster:')
+    # First cluster means
     f1 = 0
     s1 = 0
     n1 = 0
     for pair, label in zip(two, km.labels_):
         if label == 0:
-            print(pair)
             f1 += pair[0]
             s1 += pair[1]
             n1 += 1
-    print('Second cluster:')
+    # Second cluster means
     f2 = 0
     s2 = 0
     n2 = 0
     for pair, label in zip(two, km.labels_):
         if label == 1:
-            print(pair)
             f2 += pair[0]
             s2 += pair[1]
             n2 += 1
 
-    print('Average ordinal project pairs cl.1: [{:.1f}, {:.1f}]'. format(
+    print('\nAverage ordinal project pairs cl.1: [{:.1f}, {:.1f}]'. format(
         (f1 / n1) + 1, (s1 / n1) + 1
     ))
     print('Members: {}'.format(n1))
     print('Average ordinal project pairs cl.2: [{:.1f}, {:.1f}]'. format(
         (f2 / n2) + 1, (s2 / n2) + 1
     ))
+    print('Members: {}'.format(n2))
+
+
+def three_backed_clusters(users):
+    three = []
+    for uid, projects in users.items():
+        if len(projects) == 3:
+            three.append(projects)
+    km = KMeans(n_clusters=2, n_jobs=3)
+    km.fit(three)
+
+    # First cluster means
+    f1 = 0
+    s1 = 0
+    t1 = 0
+    n1 = 0
+    for tripplet, label in zip(three, km.labels_):
+        if label == 0:
+            f1 += tripplet[0]
+            s1 += tripplet[1]
+            t1 += tripplet[2]
+            n1 += 1
+    # Second cluster means
+    f2 = 0
+    s2 = 0
+    t2 = 0
+    n2 = 0
+    for tripplet, label in zip(three, km.labels_):
+        if label == 1:
+            f2 += tripplet[0]
+            s2 += tripplet[1]
+            t2 += tripplet[2]
+            n2 += 1
+
+    print('\nAverage ordinal project tripples cl.1: [{:.1f}, {:.1f}, {:.1f}]'
+          .format((f1 / n1) + 1, (s1 / n1) + 1, (t1 / n1) + 1))
+    print('Members: {}'.format(n1))
+    print('Average ordinal project tripplets cl.2: [{:.1f}, {:.1f}, {:.1f}]'
+          .format((f2 / n2) + 1, (s2 / n2) + 1, (t2 / n2) + 1))
     print('Members: {}'.format(n2))
 
 
@@ -140,4 +177,5 @@ if __name__ == '__main__':
     two_backed_followup(data)
     three_backed_followup(data)
     two_backed_clusters(data)
+    three_backed_clusters(data)
     produce_d3json(data)
