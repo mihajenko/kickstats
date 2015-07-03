@@ -157,7 +157,7 @@ def produce_d3json(users):
                         matr[i, j] += 1
 
     project_names = {0: 'WORLD END ECONOMiCA',
-                     1: 'fault milestone one',
+                     1: 'fault milestone',
                      2: 'WAS',
                      3: 'CLANNAD',
                      4: 'The Grisaia Trilogy',
