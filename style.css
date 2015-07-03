@@ -18,13 +18,25 @@ body {
     padding-top: 100%
     position: relative;
     width: 100%
-    margin: auto 20px;
+    margin: 0 20px;
 }
 
 .d3-content-responsive {
     position: absolute;
     width: 100%;
     height: 100%;
+}
+
+.noscript-image-container {
+    position: relative;
+    width: 100%;
+}
+
+.noscript-image {
+    display: block;
+    position: absolute;
+    max-width: 100%;
+    height: auto;
 }
 
 h1 {

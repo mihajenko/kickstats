@@ -40,9 +40,6 @@ function visualizeMe(project_data) {
         innerRadius = Math.min(width, height) * .41,
         outerRadius = innerRadius * 1.15;
 
-    console.log(width);
-    console.log(height);
-
     // SVG building
     var svg = d3.select("div.d3body").append("svg:svg")
         // Two attributes that are required to make it responsive
@@ -95,4 +92,3 @@ function visualizeMe(project_data) {
         .style("fill", function(d) { return fill(d.target.index); })
         .style("opacity", 1);
 }
-
