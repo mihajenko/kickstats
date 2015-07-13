@@ -26,8 +26,9 @@ def process_page(page):
 
 def iterate_pages(base_dir=''):
     processed = []
-    for i in range(1, 7):
-        page = load_page(os.path.join(base_dir, 'project{}.html'.format(i)))
+    html_folder = os.path.join(os.getcwd(), 'html')
+    for ppath in os.listdir(html_folder):
+        page = load_page(os.path.join(html_folder, ppath))
         processed.append(process_page(page))
     return processed
 
