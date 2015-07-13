@@ -7,28 +7,30 @@ from sklearn.cluster import KMeans
 
 
 def projects_backed_per_user(users):
-    counts = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0}
+    counts = {}
+    nr_of_projects = 0
     for uid, projects in users.items():
-        counts[len(projects)] += 1
+        # how many projects did the user back?
+        projects_supported = len(projects)
+        # figure out the number of projects in total
+        last_project = numpy.amax(projects)
+        # count them
+        if last_project > nr_of_projects:
+            nr_of_projects = last_project
+        if projects_supported in counts:
+            counts[projects_supported] += 1
+        else:
+            counts[projects_supported] = 1
 
-    total_backers = 0
-    for cnt, backs in counts.items():
-        total_backers += backs
+    total_backs = len(users)
 
     print('Projects backed\t\tBackers\t\t%')
     print('===========================================')
-    print('{}\t\t\t\t\t{}\t\t{:.1f}%'
-          .format('1', counts[1], counts[1] * 100 / total_backers))
-    print('{}\t\t\t\t\t{}\t\t{:.1f}%'
-          .format('2', counts[2], counts[2] * 100 / total_backers))
-    print('{}\t\t\t\t\t{}\t\t\t{:.1f}%'
-          .format('3', counts[3], counts[3] * 100 / total_backers))
-    print('{}\t\t\t\t\t{}\t\t\t{:.1f}%'
-          .format('4', counts[4], counts[4] * 100 / total_backers))
-    print('{}\t\t\t\t\t{}\t\t\t{:.1f}%'
-          .format('5', counts[5], counts[5] * 100 / total_backers))
-    print('{}\t\t\t\t\t{}\t\t\t{:.1f}%'
-          .format('6', counts[6], counts[6] * 100 / total_backers))
+    for p_backed in range(len(counts)):
+        backed_key = p_backed + 1
+        print('{}\t\t\t\t\t{}\t\t{:.1f}%'
+              .format(backed_key, counts[backed_key],
+                      counts[backed_key] * 100 / total_backs))
 
 
 def two_backed_followup(users):
@@ -148,6 +150,9 @@ def three_backed_clusters(users):
 
 
 def produce_d3json(users):
+    """
+    TODO: Make it usable for all queries
+    """
     matr = numpy.zeros((6, 6), dtype=numpy.int32)
     for uid, projects in users.items():
         if len(projects) == 2:
@@ -174,8 +179,8 @@ if __name__ == '__main__':
     with open('userdata.json') as fp:
         data = json.load(fp)
     projects_backed_per_user(data)
-    two_backed_followup(data)
-    three_backed_followup(data)
+    # two_backed_followup(data)     # pretty useless
+    # three_backed_followup(data)   # pretty useless
     two_backed_clusters(data)
     three_backed_clusters(data)
-    produce_d3json(data)
+    # produce_d3json(data)          # not generalized enough
