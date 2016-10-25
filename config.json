@@ -3,19 +3,19 @@
   "version": "1.0",
   "data": "data.json",
   "logo": {
-    "file": "cyth.png",
+    "file": "",
     "link": "https://cythoplazma.wordpress.com",
     "text": "Miha Jenko"
   },
   "text": {
-    "more": "This network was modeled around anime credits data taken from the AnimeNewsNetwork Encyclopedia.\n\nIncluded are profiles such as original creators, producers, directors, script writers, key animators, filming and sound positions, ... The visualization does not include voice actors nor staff associated with overseas companies.\n\nTools: Python 2.7, NetworkX, Gephi.\n\nContact author at mjenko t-2 net",
-    "intro": "Network of anime creators connecting through common anime projects.",
-    "title": "Anime Creator Business Network"
+    "more": "This network was modeled around anime credits data taken from the AnimeNewsNetwork's <a href=\"https://www.animenewsnetwork.com/encyclopedia/anime.php\">Anime Encyclopedia</a> and covers profiles such as original creators, producers, directors, script writers, key animators, filming and sound positions etc. The visualization does not include voice actors nor staff from overseas companies.<br><br>Tools: Python 2.7, NetworkX, Gephi.<br><br>For more information, read the <a href=\"\">blog post</a>, or contact the author at mjenko t-2 net.",
+    "intro": "Network of anime staffers connected through common anime projects.",
+    "title": "Visualizating a Business Network of Anime Staffers"
   },
   "legend": {
     "edgeLabel": "Working Relationship",
     "colorLabel": "Suspected Communities",
-    "nodeLabel": "Anime Creator"
+    "nodeLabel": "Anime Staffer"
   },
   "features": {
     "search": true,
@@ -28,22 +28,23 @@
   },
   "sigma": {
     "drawingProperties": {
+      "borderSize": 1,
       "defaultEdgeType": "curve",
-      "defaultHoverLabelBGColor": "#002147",
-      "defaultLabelBGColor": "#ddd",
-      "activeFontStyle": "bold",
-      "defaultLabelColor": "#000",
-      "labelThreshold": 10,
       "defaultLabelHoverColor": "#fff",
-      "fontStyle": "bold",
-      "hoverFontStyle": "bold",
+      "defaultHoverLabelBGColor": "#000",
+      "defaultLabelBGColor": "#000",
+      "defaultLabelColor": "#c40000",
+      "activeFontStyle": "bold",
+      "labelThreshold": 2000,
+      "fontStyle": "regular",
+      "hoverFontStyle": "regular",
       "defaultLabelSize": 14
     },
     "graphProperties": {
-      "maxEdgeSize": 0.5,
-      "minEdgeSize": 0.2,
+      "maxEdgeSize": 0.4,
+      "minEdgeSize": 0.1,
       "minNodeSize": 1,
-      "maxNodeSize": 7
+      "maxNodeSize": 14
     },
     "mouseProperties": {
       "maxRatio": 20,
