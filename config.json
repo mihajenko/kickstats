@@ -8,7 +8,7 @@
     "text": "Miha Jenko"
   },
   "text": {
-    "more": "This network was modeled around anime credits data taken from the AnimeNewsNetwork's <a href=\"https://www.animenewsnetwork.com/encyclopedia/anime.php\">Anime Encyclopedia</a> and covers profiles such as original creators, producers, directors, script writers, key animators, filming and sound positions etc. The visualization does not include voice actors nor staff from overseas companies.<br><br>Tools: Python 2.7, NetworkX, Gephi.<br><br>For more information, read the <a href=\"\">blog post</a>, or contact the author at mjenko t-2 net.",
+    "more": "This network was modeled around anime credits data taken from the AnimeNewsNetwork's <a href=\"https://www.animenewsnetwork.com/encyclopedia/anime.php\">Anime Encyclopedia</a> and covers profiles such as original creators, producers, directors, script writers, key animators, filming and sound positions etc. The visualization does not include voice actors nor staff from overseas companies.<br><br>Tools: Python 2.7, NetworkX, Gephi.<br><br>For more information, read the <a href=\"https://cythoplazma.wordpress.com/2016/10/25/the-social-structure-of-the-anime-industry/\">blog post</a>, or contact the author at mjenko t-2 net.",
     "intro": "Network of anime staffers connected through common anime projects.",
     "title": "Visualizing a Business Network of Anime Staffers"
   },
